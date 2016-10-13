@@ -1,0 +1,31 @@
+---
+- name: resolve platform specific vars
+  include_vars: "{{item}}"
+  with_first_found:
+    - "{{ansible_distribution}}-{{ansible_distribution_release}}.yml"
+    - "{{ansible_distribution}}.yml"
+    - "{{ansible_os_family}}.yml"
+    
+- name: install OS pkgs
+  become: yes
+  become_user: root
+  with_items: '{{trust_ca_dep_pkgs}}'
+  package: name={{item}} state=present
+    
+- name: install CA certificate
+  become: yes
+  become_user: root
+  copy: >-
+    owner=root
+    group=root
+    mode=400
+    src={{trust_ca_cacert_file}}
+    dest={{trust_ca_cacert_dest}}
+  register: trust_ca_cacertinstalled
+
+- name: update CA trust...
+  become: yes
+  become_user: root
+  command: '{{trust_ca_update_trust_cmd}}'
+  when: trust_ca_cacertinstalled|changed
+  
