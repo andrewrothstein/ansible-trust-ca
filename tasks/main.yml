@@ -18,7 +18,7 @@
   copy: >-
     owner=root
     group=root
-    mode=400
+    mode=0644
     src={{trust_ca_cacert_file}}
     dest={{trust_ca_cacert_dest}}
   register: trust_ca_cacertinstalled
