@@ -1,5 +1,5 @@
 ---
 trust_ca_dep_pkgs:
-  - ca-certficates
+  - ca-certificates
 trust_ca_cacert_dir: /usr/local/share/ca-certificates
 trust_ca_update_trust_cmd: update-ca-certificates
