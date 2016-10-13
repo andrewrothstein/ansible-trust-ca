@@ -1,6 +1,6 @@
 ---
 # ~/pki/ca.pem
-trust_ca_cacert_file: '{{trust_ca_pki_dir}}/{{trust_ca_pki_prefix}}{{trust_ca_cert_suffix}}'
+trust_ca_cacert_file: '{{trust_ca_pki_dir}}/{{trust_ca_pki_prefix}}{{trust_ca_pki_suffix}}'
 
-# /etc/pki/ca-trust/source/anchors/ca.pem
-trust_ca_cacert_dest: '{{trust_ca_cacert_dir}}/{{trust_ca_cert_prefix}}{{trust_ca_cert_suffix}}'
+# /etc/pki/ca-trust/source/anchors/ca.crt
+trust_ca_cacert_dest: '{{trust_ca_cacert_dir}}/{{trust_ca_cert_prefix}}.crt'
