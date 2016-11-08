@@ -1,0 +1,7 @@
+---
+trust_ca_cacert_dir: /tmp
+trust_ca_update_trust_cmd: >-
+  /usr/bin/security add-trusted-cert -d
+  -r trustRoot
+  -k /Library/Keychains/System.keychain
+  {{trust_ca_cacert_dest}}

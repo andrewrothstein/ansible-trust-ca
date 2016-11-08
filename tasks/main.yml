@@ -16,8 +16,6 @@
   become: yes
   become_user: root
   copy: >-
-    owner=root
-    group=root
     mode=0644
     src={{trust_ca_cacert_file}}
     dest={{trust_ca_cacert_dest}}
