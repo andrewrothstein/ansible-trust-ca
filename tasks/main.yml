@@ -9,7 +9,7 @@
 - name: install OS pkgs
   become: yes
   become_user: root
-  with_items: '{{trust_ca_dep_pkgs}}'
+  with_items: '{{trust_ca_dep_pkgs | default([])}}'
   package: name={{item}} state=present
     
 - name: install CA certificate
