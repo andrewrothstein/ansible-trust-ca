@@ -6,4 +6,4 @@ trust_ca_pki_suffix: .pem
 
 # where the CA certificate will be installed
 trust_ca_cert_prefix: ca
-
+trust_ca_cert_suffix: crt

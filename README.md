@@ -21,9 +21,12 @@ See [meta/main.yml](meta/main.yml)
 Example Playbook
 ----------------
 
-    - hosts: servers
-      roles:
-         - andrewrothstein.trust-ca
+```yml
+- hosts: servers
+  roles:
+    - role: andrewrothstein.trust-ca
+	  trust_ca_pki_dir: ~/pki
+```
 
 License
 -------
@@ -33,4 +36,4 @@ MIT
 Author Information
 ------------------
 
-Andrew Rothstein andrew.rothstein@gmail.com
+Andrew Rothstein <andrew.rothstein@gmail.com>
