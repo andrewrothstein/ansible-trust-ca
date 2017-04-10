@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-trust-ca.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-trust-ca)
 andrewrothstein.trust-ca
 ========================
 
