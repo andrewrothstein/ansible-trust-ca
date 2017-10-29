@@ -19,6 +19,7 @@
     mode=0644
     src={{trust_ca_cacert_file}}
     dest={{trust_ca_cacert_dest}}
+    remote_src=yes
   register: trust_ca_cacertinstalled
 
 - name: update CA trust...
@@ -26,4 +27,3 @@
   become_user: root
   command: '{{trust_ca_update_trust_cmd}}'
   when: trust_ca_cacertinstalled|changed
-  
