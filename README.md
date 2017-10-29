@@ -1,8 +1,8 @@
-[![CircleCI](https://circleci.com/gh/andrewrothstein/ansible-trust-ca.svg?style=svg)](https://circleci.com/gh/andrewrothstein/ansible-trust-ca)
 andrewrothstein.trust-ca
 ========================
+[![Build Status](https://travis-ci.org/andrewrothstein/ansible-trust-ca.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-trust-ca)
 
-Installs a CA certificate and trusts it
+Installs a certificate authority TLS certificate into the target system.
 
 Requirements
 ------------
