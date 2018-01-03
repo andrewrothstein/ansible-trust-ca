@@ -25,7 +25,7 @@
     src: '{{trust_ca_cacert_file}}'
     dest: '{{trust_ca_cacert_dest}}'
     mode: 0644
-    remote_src: yes
+    remote_src: '{{trust_ca_cacert_remote}}'
   register: trust_ca_cacertinstalled
 
 - name: update CA trust...
