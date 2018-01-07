@@ -26,7 +26,7 @@ Example Playbook
 - hosts: servers
   roles:
     - role: andrewrothstein.trust-ca
-	  trust_ca_pki_dir: ~/pki
+      trust_ca_pki_dir: ~/pki
 ```
 
 License
