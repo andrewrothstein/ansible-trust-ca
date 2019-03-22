@@ -26,10 +26,10 @@
     dest: '{{trust_ca_cacert_dest}}'
     mode: 0644
     remote_src: '{{trust_ca_cacert_remote}}'
-  register: trust_ca_cacertinstalled
+  register: trust_ca_cacert_installed
 
 - name: update CA trust...
   become: yes
   become_user: root
   command: '{{trust_ca_update_trust_cmd}}'
-  when: trust_ca_cacertinstalled|changed
+  when: trust_ca_cacert_installed is changed
