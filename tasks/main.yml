@@ -1,35 +1,35 @@
 ---
 - name: resolve platform specific vars
-  include_vars: '{{item}}'
+  include_vars: '{{ item }}'
   with_first_found:
     - files:
-        - '{{ansible_distribution}}-{{ansible_distribution_release}}.yml'
-        - '{{ansible_distribution}}.yml'
-        - '{{ansible_os_family}}.yml'
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
       skip: true
       paths:
-        - '{{role_path}}/vars'
-    
+        - '{{ role_path }}/vars'
+
 - name: install OS pkgs
   become: yes
   become_user: root
-  with_items: '{{trust_ca_dep_pkgs | default([])}}'
+  with_items: '{{ trust_ca_dep_pkgs | default([]) }}'
   package:
-    name: '{{item}}'
+    name: '{{ item }}'
     state: present
-    
+
 - name: install CA certificate
   become: yes
   become_user: root
   copy:
-    src: '{{trust_ca_cacert_file}}'
-    dest: '{{trust_ca_cacert_dest}}'
+    src: '{{ trust_ca_cacert_file }}'
+    dest: '{{ trust_ca_cacert_dest }}'
     mode: 0644
-    remote_src: '{{trust_ca_cacert_remote}}'
+    remote_src: '{{ trust_ca_cacert_remote }}'
   register: trust_ca_cacert_installed
 
 - name: update CA trust...
   become: yes
   become_user: root
-  command: '{{trust_ca_update_trust_cmd}}'
+  command: '{{ trust_ca_update_trust_cmd }}'
   when: trust_ca_cacert_installed is changed
