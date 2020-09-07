@@ -9,4 +9,4 @@ trust_ca_cert_prefix: ca
 trust_ca_cert_suffix: crt
 
 # should CA certificate be copied from remote or master machine
-trust_ca_cacert_remote: yes
+trust_ca_cacert_remote_src: no
