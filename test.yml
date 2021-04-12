@@ -1,12 +1,10 @@
 ---
 - hosts: all
+  vars:
+    trust_ca_configs:
+      - name: test-target-01
+        pki_dir: '{{ playbook_dir}}/test-pki'
+      - name: test-target-02
+        pki_dir: '{{ playbook_dir}}/test-pki'
   roles:
     - role: '{{ playbook_dir}}'
-      trust_ca_pki_dir: '{{ playbook_dir}}/test-pki'
-      trust_ca_name: test-target-01
-- hosts: all
-  roles:
-    - role: '{{ playbook_dir}}'
-      trust_ca_pki_dir: '{{ playbook_dir}}/test-pki'
-      trust_ca_name: test-target-02
-

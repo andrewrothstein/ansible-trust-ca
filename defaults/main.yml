@@ -1,6 +1,8 @@
 ---
-# where the CA certificate sits in its PKI directory
-trust_ca_pki_dir: ~/pki
+# each slice....
+# name: name of the crt in the root trust store
+# pki_dir: where the CA certificate sits in its PKI directory
 
-# target crt
-trust_ca_name: my-pki
+#trust_ca_configs:
+#  - name: my-pki
+#    pki_dir: ~/pki

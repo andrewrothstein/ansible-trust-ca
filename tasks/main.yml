@@ -17,19 +17,20 @@
     name: '{{ trust_ca_dep_pkgs | default([]) }}'
     state: present
 
-- name: install CA certificate for {{ trust_ca_name }}
-  when: trust_ca_name is defined
-  include_role:
-    name: andrewrothstein.tls
-  vars:
-    tls_src: '{{ trust_ca_pki_dir }}'
-    tls_dest: '{{ trust_ca_cacert_dir }}'
-    tls_kinds:
-      - ca
-    tls_dest_file_names:
-      ca: '{{ trust_ca_name }}.crt'
-
-- name: 'updating trust hashes with: {{ trust_ca_update_trust_cmd }}...'
-  become: yes
-  become_user: root
-  command: '{{ trust_ca_update_trust_cmd }}'
+- when: trust_ca_configs is defined
+  block:
+    - name: installing CA certificates...
+      with_items: '{{ trust_ca_configs }}'
+      include_role:
+        name: andrewrothstein.tls
+      vars:
+        tls_src: '{{ item.pki_dir }}'
+        tls_dest: '{{ trust_ca_cacert_dir }}'
+        tls_kinds:
+          - ca
+        tls_dest_file_names:
+          ca: '{{ item.name }}.crt'
+    - name: 'updating trust hashes with: {{ trust_ca_update_trust_cmd }}...'
+      become: yes
+      become_user: root
+      command: '{{ trust_ca_update_trust_cmd }}'
