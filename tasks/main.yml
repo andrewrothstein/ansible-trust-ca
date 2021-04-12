@@ -24,6 +24,8 @@
       include_role:
         name: andrewrothstein.tls
       vars:
+        tls_become: yes
+        tls_become_user: root
         tls_src: '{{ item.pki_dir }}'
         tls_dest: '{{ trust_ca_cacert_dir }}'
         tls_kinds:
