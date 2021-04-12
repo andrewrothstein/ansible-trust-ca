@@ -2,7 +2,7 @@ andrewrothstein.trust-ca
 ========================
 [![Build Status](https://travis-ci.org/andrewrothstein/ansible-trust-ca.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-trust-ca)
 
-Installs a certificate authority TLS certificate into the target system.
+Installs a certificate authority TLS certificate into the target systems root trust store..
 
 Requirements
 ------------
@@ -26,7 +26,9 @@ Example Playbook
 - hosts: servers
   roles:
     - role: andrewrothstein.trust-ca
-      trust_ca_pki_dir: ~/pki
+      trust_ca_configs:
+        - name: my-pki
+          pki_dir: ~/pki
 ```
 
 License
