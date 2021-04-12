@@ -1,12 +1,6 @@
 ---
-# where the CA certificate sits in the PKI directory
+# where the CA certificate sits in its PKI directory
 trust_ca_pki_dir: ~/pki
-trust_ca_pki_prefix: ca
-trust_ca_pki_suffix: .pem
 
-# where the CA certificate will be installed
-trust_ca_cert_prefix: ca
-trust_ca_cert_suffix: crt
-
-# should CA certificate be copied from remote or master machine
-trust_ca_cacert_remote_src: no
+# target crt
+trust_ca_name: my-pki

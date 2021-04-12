@@ -2,5 +2,11 @@
 - hosts: all
   roles:
     - role: '{{ playbook_dir}}'
-      trust_ca_pki_dir: '{{ playbook_dir}}'
-      trust_ca_cert_prefix: test-target
+      trust_ca_pki_dir: '{{ playbook_dir}}/test-pki'
+      trust_ca_name: test-target-01
+- hosts: all
+  roles:
+    - role: '{{ playbook_dir}}'
+      trust_ca_pki_dir: '{{ playbook_dir}}/test-pki'
+      trust_ca_name: test-target-02
+
