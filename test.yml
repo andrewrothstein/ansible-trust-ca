@@ -5,6 +5,6 @@
       - name: test-target-01
         pki_dir: '{{ playbook_dir}}/test-pki'
       - name: test-target-02
-        pki_dir: '{{ playbook_dir}}/test-pki'
+        pki_dir: '{{ playbook_dir}}/test-pki2'
   roles:
     - role: '{{ playbook_dir}}'
