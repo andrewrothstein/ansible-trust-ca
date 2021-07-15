@@ -1,6 +1,6 @@
 andrewrothstein.trust-ca
 ========================
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-trust-ca.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-trust-ca)
+![Build Status](https://github.com/andrewrothstein/ansible-trust-ca/actions/workflows/build.yml/badge.svg)
 
 Installs a certificate authority TLS certificate into the target systems root trust store..
 
